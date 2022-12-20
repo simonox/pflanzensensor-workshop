@@ -102,7 +102,10 @@ void loop(){
             client.println("<p><b>Temperature:</b> ");
             client.println(tempC);
             client.println("&deg;C</p>");
-            client.println("<p><b>Moisture value:</b> ");
+            client.println("<p><b>Humidity:</b> ");
+            client.println(humi);
+            client.println(" %</p>");
+            client.println("<p><b>Soil moisture value:</b> ");
             client.println(soil);
             client.println("</p>");
             client.println("<script>window.setTimeout(() => {window.location.href = window.location.href}, 1000)</script>");
