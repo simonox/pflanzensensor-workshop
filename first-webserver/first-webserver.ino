@@ -96,13 +96,13 @@ void loop(){
             client.println(".button2 {background-color: #555555;}</style></head>");
             
             // Web Page Heading
-            client.println("<body><h1>ESP32</h1>");
-            
+            client.println("<body><h1>Pflanzensensor</h1>");
+            client.println("<img src='https://curious.bio/wp-content/uploads/2021/04/cropped-cropped-Curious_Community_Labs_Logo_fit.png' width=200><br />");
             // Display current state, and ON/OFF buttons for GPIO 26  
-            client.println("<p>Temperature ");
+            client.println("<p><b>Temperature:</b> ");
             client.println(tempC);
             client.println("&deg;C</p>");
-            client.println("<p>Moisture value ");
+            client.println("<p><b>Moisture value:</b> ");
             client.println(soil);
             client.println("</p>");
             client.println("<script>window.setTimeout(() => {window.location.href = window.location.href}, 1000)</script>");
