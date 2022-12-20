@@ -1,11 +1,12 @@
-/*********
-  Rui Santos
-  Complete project details at http://randomnerdtutorials.com  
-*********/
-
-// Load Wi-Fi library
 #include <WiFi.h>
-#include "credentials.h"
+#include <DHT.h>
+#include "credentials.h" // put your WIFI credentials in here
+
+#define DHT_SENSOR_PIN  21 // ESP32 pin GIOP21 connected to DHT11 sensor
+#define DHT_SENSOR_TYPE DHT11
+#define AOUT_PIN 36 // ESP32 pin GIOP36 (ADC0) that connects to AOUT pin of moisture sensor
+
+DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 
 // Replace with your network credentials
 const char* ssid = secrect_ssid;
@@ -17,13 +18,7 @@ WiFiServer server(80);
 // Variable to store the HTTP request
 String header;
 
-// Auxiliar variables to store the current output state
-String output26State = "off";
-String output27State = "off";
 
-// Assign output variables to GPIO pins
-const int output26 = 26;
-const int output27 = 27;
 
 // Current time
 unsigned long currentTime = millis();
@@ -33,13 +28,9 @@ unsigned long previousTime = 0;
 const long timeoutTime = 2000;
 
 void setup() {
-  Serial.begin(115200);
-  // Initialize the output variables as outputs
-  pinMode(output26, OUTPUT);
-  pinMode(output27, OUTPUT);
-  // Set outputs to LOW
-  digitalWrite(output26, LOW);
-  digitalWrite(output27, LOW);
+  Serial.begin(9600);
+  dht_sensor.begin(); // initialize the DHT sensor
+
 
   // Connect to Wi-Fi network with SSID and password
   Serial.print("Connecting to ");
@@ -58,6 +49,17 @@ void setup() {
 }
 
 void loop(){
+
+    // read humidity
+  float humi  = dht_sensor.readHumidity();
+  // read temperature in Celsius
+  float tempC = dht_sensor.readTemperature();
+  // read temperature in Fahrenheit
+  float tempF = dht_sensor.readTemperature(true);
+
+  // read soil
+  int soil = analogRead(AOUT_PIN); // read the analog value from sensor
+
   WiFiClient client = server.available();   // Listen for incoming clients
 
   if (client) {                             // If a new client connects,
@@ -82,25 +84,6 @@ void loop(){
             client.println("Connection: close");
             client.println();
             
-            // turns the GPIOs on and off
-            if (header.indexOf("GET /26/on") >= 0) {
-              Serial.println("GPIO 26 on");
-              output26State = "on";
-              digitalWrite(output26, HIGH);
-            } else if (header.indexOf("GET /26/off") >= 0) {
-              Serial.println("GPIO 26 off");
-              output26State = "off";
-              digitalWrite(output26, LOW);
-            } else if (header.indexOf("GET /27/on") >= 0) {
-              Serial.println("GPIO 27 on");
-              output27State = "on";
-              digitalWrite(output27, HIGH);
-            } else if (header.indexOf("GET /27/off") >= 0) {
-              Serial.println("GPIO 27 off");
-              output27State = "off";
-              digitalWrite(output27, LOW);
-            }
-            
             // Display the HTML web page
             client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
@@ -113,25 +96,16 @@ void loop(){
             client.println(".button2 {background-color: #555555;}</style></head>");
             
             // Web Page Heading
-            client.println("<body><h1>ESP32 Web Server</h1>");
+            client.println("<body><h1>ESP32</h1>");
             
             // Display current state, and ON/OFF buttons for GPIO 26  
-            client.println("<p>GPIO 26 - State " + output26State + "</p>");
-            // If the output26State is off, it displays the ON button       
-            if (output26State=="off") {
-              client.println("<p><a href=\"/26/on\"><button class=\"button\">ON</button></a></p>");
-            } else {
-              client.println("<p><a href=\"/26/off\"><button class=\"button button2\">OFF</button></a></p>");
-            } 
-               
-            // Display current state, and ON/OFF buttons for GPIO 27  
-            client.println("<p>GPIO 27 - State " + output27State + "</p>");
-            // If the output27State is off, it displays the ON button       
-            if (output27State=="off") {
-              client.println("<p><a href=\"/27/on\"><button class=\"button\">ON</button></a></p>");
-            } else {
-              client.println("<p><a href=\"/27/off\"><button class=\"button button2\">OFF</button></a></p>");
-            }
+            client.println("<p>Temperature ");
+            client.println(tempC);
+            client.println("&deg;C</p>");
+            client.println("<p>Moisture value ");
+            client.println(soil);
+            client.println("</p>");
+            client.println("<script>window.setTimeout(() => {window.location.href = window.location.href}, 1000)</script>");
             client.println("</body></html>");
             
             // The HTTP response ends with another blank line
