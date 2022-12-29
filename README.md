@@ -36,6 +36,9 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 ### CLI
 ![Beadboard](breadboard.png "breadboard")
 
+![Schaltplan](schaltplan.png "schaltplan")
+
+
 ```sh
 esphome --help
 usage: esphome [-h] [-v] [-q] [-s key value] command ...
