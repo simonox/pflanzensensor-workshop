@@ -1,19 +1,19 @@
-#include <WiFi.h>
-#include <DHT.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+
+#include "DHTesp.h"
 #include "credentials.h" // put your WIFI credentials in here
 
-#define DHT_SENSOR_PIN  21 // ESP32 pin GIOP21 connected to DHT11 sensor
-#define DHT_SENSOR_TYPE DHT11
-#define AOUT_PIN 36 // ESP32 pin GIOP36 (ADC0) that connects to AOUT pin of moisture sensor
+#define AOUT_PIN A0 // ESP32 pin GIOP36 (ADC0) that connects to AOUT pin of moisture sensor
 
-DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
+DHTesp dht;
+WiFiServer server(80);
 
 // Replace with your network credentials
 const char* ssid = secrect_ssid;
 const char* password = secret_password;
 
 // Set web server port number to 80
-WiFiServer server(80);
 
 // Variable to store the HTTP request
 String header;
@@ -29,7 +29,7 @@ const long timeoutTime = 2000;
 
 void setup() {
   Serial.begin(9600);
-  dht_sensor.begin(); // initialize the DHT sensor
+  dht.setup(D0, DHTesp::DHT11); // Connect DHT sensor to D0
 
 
   // Connect to Wi-Fi network with SSID and password
@@ -51,16 +51,15 @@ void setup() {
 void loop(){
 
     // read humidity
-  float humi  = dht_sensor.readHumidity();
+  float humi  = dht.getHumidity();
   // read temperature in Celsius
-  float tempC = dht_sensor.readTemperature();
-  // read temperature in Fahrenheit
-  float tempF = dht_sensor.readTemperature(true);
+  float tempC = dht.getTemperature();
+
 
   // read soil
   int soil = analogRead(AOUT_PIN); // read the analog value from sensor
 
-  WiFiClient client = server.available();   // Listen for incoming clients
+  WiFiClient client = server.available();     // Listen for incoming clients
 
   if (client) {                             // If a new client connects,
     currentTime = millis();
