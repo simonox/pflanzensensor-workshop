@@ -26,6 +26,7 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 
 * [Python Runtime Environment](https://www.python.org/)
 * [VSCodium Code Editor](https://vscodium.com/)
+* [Fritzing Prototyping Editor](https://fritzing.org/)
 
 ## ESPHome
 
