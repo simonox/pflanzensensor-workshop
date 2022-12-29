@@ -64,4 +64,8 @@ esphome compile esphome.yaml
 esphome upload esphome.yaml
 ```
 
-Boardmangers (for Arduino IDE): http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json
+## Arduino IDE
+
+Download hier: https://www.arduino.cc/
+
+ESP board mangager hinzufügen (Einstellungen -> Board Manager URLs): http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json
