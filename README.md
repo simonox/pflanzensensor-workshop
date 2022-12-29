@@ -28,9 +28,13 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 * [VSCodium Code Editor](https://vscodium.com/)
 * [Fritzing Prototyping Editor](https://fritzing.org/)
 
+## Schaltplan
+
+
 ## ESPHome
 
 ### CLI
+![Beadboard](breadboard.png "breadboard")
 
 ```sh
 esphome --help
