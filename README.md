@@ -46,6 +46,33 @@ Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Ma
 
 ![Library Manager](librarymanager.png "library manager")
 
+## Beispiele
+
+Es gibt zwei Beispiele. 
+* `serial-out` gibt einfach Messwerte über den Serial Monitor aus.
+* `first-webserver` präsentiert die gleichen Messerte auf einer Website
+
+Damit der Webserver im eigenen Netzwerk funktioniert, ist es am einfachsten, diese Zeile zu löschne, 
+
+```
+#include "credentials.h" // put your WIFI credentials in here
+```
+
+Statt dessen kann man dann die SSID und das Passwort des eigenen WLANS in diesen Zeilen eintragen:
+```
+// Replace with your network credentials
+const char* ssid = secrect_ssid;
+const char* password = secret_password;
+```
+
+Zum Beispiel so:
+
+```
+// Replace with your network credentials
+const char* ssid = "MeinKabelWifi";
+const char* password = "letMeIn123";
+```
+
 ## ESPHome
 
 ### CLI
