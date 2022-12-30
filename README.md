@@ -42,7 +42,7 @@ Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefüg
 
 ![Einstellungen](preferences.png "board manager URLs")
 
-Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): DHT sensor libarary for ESPx:
+Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): "DHT sensor library for ESPx by beegee_tokyo":
 
 ![Library Manager](librarymanager.png "library manager")
 
