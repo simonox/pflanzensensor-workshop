@@ -25,8 +25,9 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 ## Systemanforderungen
 
 * [Python Runtime Environment](https://www.python.org/)
-* [VSCodium Code Editor](https://vscodium.com/)
 * [Fritzing Prototyping Editor](https://fritzing.org/)
+* [Arduino IDE](https://www.arduino.cc/)
+* [VSCodium Code Editor](https://vscodium.com/) alternativ zur Arduino IDE
 
 ## Schaltplan
 
