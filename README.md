@@ -30,14 +30,25 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 
 ## Schaltplan
 
-
-## ESPHome
-
-### CLI
 ![Beadboard](breadboard.png "breadboard")
 
 ![Schaltplan](schaltplan.png "schaltplan")
 
+## Arduino IDE
+
+Download hier: https://www.arduino.cc/
+
+Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefügt werden (Einstellungen -> Board Manager URLs): "http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json"
+
+![Einstellungen](preferences.png "board manager URLs")
+
+Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): DHT sensor libarary for ESPx:
+
+![Library Manager](librarymanager.png "library manager")
+
+## ESPHome
+
+### CLI
 
 ```sh
 esphome --help
@@ -70,16 +81,4 @@ options:
 esphome compile esphome.yaml
 esphome upload esphome.yaml
 ```
-
-## Arduino IDE
-
-Download hier: https://www.arduino.cc/
-
-Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefügt werden (Einstellungen -> Board Manager URLs): "http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json"
-
-![Einstellungen](preferences.png "board manager URLs")
-
-Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): DHT sensor libarary for ESPx:
-
-![Library Manager](librarymanager.png "library manager")
 
