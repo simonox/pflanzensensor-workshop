@@ -46,6 +46,14 @@ Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Ma
 
 ![Library Manager](librarymanager.png "library manager")
 
+Zum Flashen (Upload) muss das richtige Board "LOLIN(WEMOS) D1 mino (clone)" und der richtige Port (ein serieller Port, an dem das Board über USB angeschlossen ist) ausgewählt sein.
+
+![Flash](flash.png "flash")
+
+
+Hier hilft die Doku sicherlich weiter: https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE
+
+
 ## Beispiele
 
 Es gibt zwei Beispiele. 
