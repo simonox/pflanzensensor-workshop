@@ -39,11 +39,11 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 
 Download hier: https://www.arduino.cc/
 
-Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefügt werden (Einstellungen -> Board Manager URLs): "http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json"
+Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefügt werden (Einstellungen -> Board Manager URLs): "http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json" Man kann diese einfach in die Zeile einfügen. Unterschiedeliche Board-Manager-URLs können mit einem Komma getrennt sein.
 
 ![Einstellungen](preferences.png "board manager URLs")
 
-Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): "DHT sensor library for ESPx by beegee_tokyo":
+Um den DHT11 auszulesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): "DHT sensor library for ESPx by beegee_tokyo":
 
 ![Library Manager](librarymanager.png "library manager")
 
@@ -61,7 +61,7 @@ Es gibt zwei Beispiele.
 * `serial-out` gibt einfach Messwerte über den Serial Monitor aus.
 * `first-webserver` präsentiert die gleichen Messerte auf einer Website
 
-Damit der Webserver im eigenen Netzwerk funktioniert, ist es am einfachsten, diese Zeile zu löschen: 
+Damit der Webserver im eigenen Netzwerk funktioniert, muss dieser die SSID des Wifis und das Passwort kennen. Es ist am einfachsten, diese Zeile zu löschen: 
 ```
 #include "credentials.h" // put your WIFI credentials in here
 ```
