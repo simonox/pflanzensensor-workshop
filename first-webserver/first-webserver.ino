@@ -106,7 +106,7 @@ void loop(){
             client.println("<p><b>Soil moisture value:</b> ");
             client.println(soil);
             client.println("</p>");
-            client.println("<script>window.setTimeout(() => {window.location.href = window.location.href}, 1000)</script>");
+            client.println("<script>window.setTimeout(() => {window.location.href = window.location.href}, 10000)</script>");
             client.println("</body></html>");
             
             // The HTTP response ends with another blank line

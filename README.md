@@ -75,4 +75,11 @@ esphome upload esphome.yaml
 
 Download hier: https://www.arduino.cc/
 
-ESP board mangager hinzufügen (Einstellungen -> Board Manager URLs): http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json
+Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefügt werden (Einstellungen -> Board Manager URLs): "http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json"
+
+![Einstellungen](preferences.png "board manager URLs")
+
+Um den DHT11 auslesen, benötigen wir zusätzlich noch eine Library (Tools -> Manage Libraries): DHT sensor libarary for ESPx:
+
+![Library Manager](librarymanager.png "library manager")
+
