@@ -52,8 +52,7 @@ Es gibt zwei Beispiele.
 * `serial-out` gibt einfach Messwerte über den Serial Monitor aus.
 * `first-webserver` präsentiert die gleichen Messerte auf einer Website
 
-Damit der Webserver im eigenen Netzwerk funktioniert, ist es am einfachsten, diese Zeile zu löschne, 
-
+Damit der Webserver im eigenen Netzwerk funktioniert, ist es am einfachsten, diese Zeile zu löschen: 
 ```
 #include "credentials.h" // put your WIFI credentials in here
 ```
