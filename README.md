@@ -39,6 +39,9 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 
 Download hier: https://www.arduino.cc/
 
+![IDE](ide.png "ide")
+
+
 Um mit den ESP-basierten Boards entwickeln zu können, müssen diese hinzugefügt werden (Einstellungen -> Board Manager URLs): "http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://dl.espressif.com/dl/package_esp32_index.json" Man kann diese einfach in die Zeile einfügen. Unterschiedeliche Board-Manager-URLs können mit einem Komma getrennt sein.
 
 ![Einstellungen](preferences.png "board manager URLs")
