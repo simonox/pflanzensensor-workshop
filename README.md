@@ -86,7 +86,7 @@ const char* password = "letMeIn123";
 
 ## Tasmota and MQTT
 
-We can use this sensor in our [IoT-Platform](../iot-platform/). Have a look in that repository.
+We can use this sensor in our [IoT-Platform](https://code.curious.bio/curious.bio/iot-platform/). Have a look in that repository.
 
 
 ## ESPHome
