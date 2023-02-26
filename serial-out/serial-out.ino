@@ -5,7 +5,7 @@ DHTesp dht;
 
 void setup() {
   Serial.begin(115200); // use this baud rate in serial monitor to see stuff
-  dht.setup(D0, DHTesp::DHT11); // Connect DHT sensor to D0
+  dht.setup(D1, DHTesp::DHT11); // Connect DHT sensor to D1
 }
 
 void loop() {

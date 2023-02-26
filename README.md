@@ -84,6 +84,41 @@ const char* ssid = "MeinKabelWifi";
 const char* password = "letMeIn123";
 ```
 
+## Tasmota
+
+[Tasmota](https://tasmota.github.io/docs/) is an alternative Firmware for ESP8266. It's easy to use as it has a graphical interface.
+
+You can flash Tasmota right from the browser using the [Tasmota Web Installer](https://tasmota.github.io/).
+
+![Flash it](./tasmota/01-flash-1.png)
+
+You have to connect your device with a USB cable and select the right port. Exisisting firmware will be delete.
+
+![Erase everything](./tasmota/02-flash-2.png)
+
+After Tasmota has been flashed to your ESP, you can already set up your wifi.
+
+![Set up Wifi](./tasmota/03-wifi.png)
+
+AFter your device is connected to Wifi, you can switch over to the web UI of your device. Yes, your device now runs an embedded web server. There you can configure your device.
+
+![Embedded web server](./tasmota/04-web-ui.png)
+
+### Configure
+
+Using this Web UI you can configure your device: `Configure -> Configure Module`
+
+We have a DHT11 connected to D1 and an analogue measurement on A0.
+
+![Basic configuration](./tasmota/05-configuration.png)
+
+
+After configuring it this way, we can see you data in the web UI.
+
+![Flash it](./tasmota/06-overview.png)
+
+
+
 ## ESPHome
 
 ### CLI
