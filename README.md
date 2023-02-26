@@ -117,6 +117,35 @@ After configuring it this way, we can see you data in the web UI.
 
 ![Flash it](./tasmota/06-overview.png)
 
+### MQTT
+
+Tasmota's main protocol is MQTT. You can setup MQTT under `Configuration -> MQTT`.
+
+ ![MQTT](./tasmota/07-setup-mqtt.png)
+
+There you can setup use our [IoT-Platform](../iot-platform) to send data over to it.
+
+The send data more frequent (nice for debugging) you have to change the telemetry period to a lower leven (than 300 s / 5 min).
+
+ ![Telemetry interval](./tasmota/08-configure-telemetry-interval.png)
+ 
+ Then our device will send data like this:
+ 
+ ```
+ {
+  "Time": "2023-02-26T17:19:55",
+  "ANALOG": {
+    "A0": 6
+  },
+  "DHT11": {
+    "Temperature": 19,
+    "Humidity": 44,
+    "DewPoint": 6.4
+  },
+  "TempUnit": "C"
+}
+
+ ```
 
 
 ## ESPHome
