@@ -108,7 +108,7 @@ AFter your device is connected to Wifi, you can switch over to the web UI of you
 
 Using this Web UI you can configure your device: `Configure -> Configure Module`
 
-We have a DHT11 connected to D1 and an analogue measurement on A0.
+Our Wemos D1 mini clone is a `generic device with 18 ports`. We have a DHT11 connected to D1 and an analogue measurement on A0.
 
 ![Basic configuration](./tasmota/05-configuration.png)
 
