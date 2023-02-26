@@ -84,68 +84,9 @@ const char* ssid = "MeinKabelWifi";
 const char* password = "letMeIn123";
 ```
 
-## Tasmota
+## Tasmota and MQTT
 
-[Tasmota](https://tasmota.github.io/docs/) is an alternative Firmware for ESP8266. It's easy to use as it has a graphical interface.
-
-You can flash Tasmota right from the browser using the [Tasmota Web Installer](https://tasmota.github.io/).
-
-![Flash it](./tasmota/01-flash-1.png)
-
-You have to connect your device with a USB cable and select the right port. Exisisting firmware will be delete.
-
-![Erase everything](./tasmota/02-flash-2.png)
-
-After Tasmota has been flashed to your ESP, you can already set up your wifi.
-
-![Set up Wifi](./tasmota/03-wifi.png)
-
-AFter your device is connected to Wifi, you can switch over to the web UI of your device. Yes, your device now runs an embedded web server. There you can configure your device.
-
-![Embedded web server](./tasmota/04-web-ui.png)
-
-### Configure
-
-Using this Web UI you can configure your device: `Configure -> Configure Module`
-
-Our Wemos D1 mini clone is a `generic device with 18 ports`. We have a DHT11 connected to D1 and an analogue measurement on A0.
-
-![Basic configuration](./tasmota/05-configuration.png)
-
-
-After configuring it this way, we can see you data in the web UI.
-
-![Flash it](./tasmota/06-overview.png)
-
-### MQTT
-
-Tasmota's main protocol is MQTT. You can setup MQTT under `Configuration -> MQTT`.
-
- ![MQTT](./tasmota/07-setup-mqtt.png)
-
-There you can setup use our [IoT-Platform](../iot-platform) to send data over to it.
-
-The send data more frequent (nice for debugging) you have to change the telemetry period to a lower leven (than 300 s / 5 min).
-
- ![Telemetry interval](./tasmota/08-configure-telemetry-interval.png)
- 
- Then our device will send data like this:
- 
- ```
- {
-  "Time": "2023-02-26T17:19:55",
-  "ANALOG": {
-    "A0": 6
-  },
-  "DHT11": {
-    "Temperature": 19,
-    "Humidity": 44,
-    "DewPoint": 6.4
-  },
-  "TempUnit": "C"
-}
-
- ```
+We can use this sensor in our [IoT-Platform](../iot-platform/). Have a look in that repository.
 
 
 ## ESPHome
