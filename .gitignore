@@ -1,3 +1,4 @@
 secrets.yaml
 credentials.h
 testcurl
+.DS_Store
