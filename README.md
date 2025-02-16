@@ -6,7 +6,7 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 
 ## Original Repo
 
-git@github.com:simonox/pflanzensensor-workshop.git
+https://code.curious.bio/curious.bio/pflanzensensor-workshop.git
 
 ## Komponenten
 
