@@ -4,6 +4,10 @@ Die Projektdokumentation zum Pflanzensensor Workshop.
 
 <https://curious.bio/2022/11/remote-chaos-experience/>
 
+## Original Repo
+
+git@github.com:simonox/pflanzensensor-workshop.git
+
 ## Komponenten
 
 ### Mikrocontroller
